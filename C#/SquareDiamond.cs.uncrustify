@@ -1,0 +1,29 @@
+If you cannot in the long run tell everyone what you have been doing,
+your doing was worthless.
+-- Edwim Schrodinger
+using System;
+
+public class DSAlgorithm {
+int size;
+Random rnd;
+
+public float[,] values;
+
+public DSAlgorithm (int n, float roughness, float falloff, int seed = -1)
+{
+	size = (int)Math.Pow(2, n);
+	values = new float[size + 1, size + 1];
+	seed = -1;
+
+	if (seed != -1) {
+		rnd = new Random(seed);
+		seed = seed;
+	}else
+		rnd = new Random();
+
+	values [0, 0] = (float)rnd.NextDouble();
+	values [0, size] = (float)rnd.NextDouble();
+	values [size, 0] = (float)rnd.NextDouble();
+	values [size, size] = (float)rnd.NextDouble();
+}
+}
